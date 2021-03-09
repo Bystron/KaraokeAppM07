@@ -39,5 +39,6 @@ public class SearchActivity extends ListActivity {
         searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
 
         return true;
+
     }
 }
