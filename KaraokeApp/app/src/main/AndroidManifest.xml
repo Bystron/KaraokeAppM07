@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="cat.itb.karaokeapp">
+
+    <activity android:name=".SearchActivity"
+        tools:ignore="WrongManifestParent">
+    <intent-filter>
+        <action android:name="android.intent.action.SEARCH" />
+    </intent-filter>
+    <meta-data android:name="android.app.searchable"
+        android:resource="@xml/searchable"/>
+</activity>
+
+</manifest>
