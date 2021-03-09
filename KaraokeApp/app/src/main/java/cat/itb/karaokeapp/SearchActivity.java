@@ -1,55 +1,44 @@
 package cat.itb.karaokeapp;
 
-import android.app.Activity;
+import android.app.ListActivity;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.SearchView;
 
-public class SearchActivity extends Activity {
+public class SearchActivity extends ListActivity {
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.search);
 
-        String msg = "Android : ";
-
-        /** Called when the activity is first created. */
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            Log.d(msg, "The onCreate() event");
+        // Get the intent, verify the action and get the query
+        Intent intent = new Intent();
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            doMySearch(query);
         }
+    }
 
-        /** Called when the activity is about to become visible. */
-        @Override
-        protected void onStart() {
-            super.onStart();
-            Log.d(msg, "The onStart() event");
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the options menu from XML
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
 
-        /** Called when the activity has become visible. */
-        @Override
-        protected void onResume() {
-            super.onResume();
-            Log.d(msg, "The onResume() event");
-        }
 
-        /** Called when another activity is taking focus. */
-        @Override
-        protected void onPause() {
-            super.onPause();
-            Log.d(msg, "The onPause() event");
-        }
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
 
-        /** Called when the activity is no longer visible. */
-        @Override
-        protected void onStop() {
-            super.onStop();
-            Log.d(msg, "The onStop() event");
-        }
-
-        /** Called just before the activity is destroyed. */
-        @Override
-        public void onDestroy() {
-            super.onDestroy();
-            Log.d(msg, "The onDestroy() event");
+        return true;
 
     }
 }
