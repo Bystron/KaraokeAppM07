@@ -70,7 +70,7 @@ public class RegisterFragment extends Fragment {
 
                 if(pass){
 
-                    changeFragment(new BlankFragment());
+                    changeFragment(new UserScreenFragment());
 
                 }else{
 
