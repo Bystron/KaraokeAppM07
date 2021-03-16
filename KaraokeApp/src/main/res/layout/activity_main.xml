@@ -21,19 +21,8 @@
             android:background="@color/colorSecundarioOscurecido"
             app:menu="@menu/bottom_navigation_menu">
 
-<<<<<<< Updated upstream:app/src/main/res/layout/activity_main.xml
 
         </com.google.android.material.bottomnavigation.BottomNavigationView>
-=======
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-        <SearchView
-            android:layout_margin="10mm"
-            android:id="@+id/searchable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="InOrMmUsage" />
->>>>>>> Stashed changes:KaraokeApp/app/src/main/res/layout/activity_main.xml
 
     </FrameLayout>
 
