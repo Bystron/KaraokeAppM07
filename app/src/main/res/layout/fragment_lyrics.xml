@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimario"
+    tools:context=".LyricsFragment">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorSecundarioOscurecido"
+        app:menu="@menu/bottom_navigation_menu"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <ImageView
+        android:id="@+id/songImg"
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        android:layout_below="@+id/txtVw1"
+        android:layout_gravity="center_horizontal"
+        android:alpha="0.4"
+        android:src="@drawable/songimg" />
+
+    <TextView
+        android:id="@+id/songNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtVw1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="430dp"
+        android:layout_toRightOf="@+id/txtVw1"
+        android:fontFamily="@font/montserratsemibold"
+        android:text="TextView"
+        android:textColor="@color/colorBlanco"
+        android:textSize="25sp"
+        tools:text="Soliá" />
+
+    <TextView
+        android:id="@+id/artistNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtVw1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="470dp"
+        android:layout_toRightOf="@+id/txtVw1"
+        android:fontFamily="@font/montserratregular"
+        android:text="TextView"
+        android:textColor="@color/colorBlanco"
+        android:textSize="18sp"
+        tools:text="Bad Bunny" />
+
+    <ImageButton
+        android:id="@+id/btnPlay"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="560dp"
+        android:alpha="0.7"
+        android:backgroundTint="#003F618A"
+        android:scaleType="fitCenter"
+        android:src="@drawable/playbtn" />
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/btnPause"-->
+    <!--        android:layout_width="90dp"-->
+    <!--        android:layout_height="90dp"-->
+    <!--        android:src="@drawable/pausebtn"-->
+    <!--        android:layout_marginTop="560dp"-->
+    <!--        android:layout_gravity="center_horizontal"-->
+    <!--        android:backgroundTint="#003F618A"-->
+    <!--        android:scaleType="fitCenter"-->
+    <!--        android:alpha="0.7"/>-->
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/btnForward"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignTop="@+id/btnPause"-->
+    <!--        android:layout_marginLeft="20dp"-->
+    <!--        android:layout_toRightOf="@+id/btnPause"-->
+    <!--        android:contentDescription="@+id/imageButton3"-->
+    <!--        android:src="@android:drawable/ic_media_ff" /> -->
+
+    <TextView
+        android:id="@+id/StartTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="525dp"
+        android:layout_marginLeft="30dp"
+        android:layout_alignTop="@+id/sBar"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/montserratregular"
+        android:text="00:00" />
+
+    <SeekBar
+        android:id="@+id/sBar"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnBackward"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="510dp"
+        android:layout_toLeftOf="@+id/txtSongTime"
+        android:layout_toRightOf="@+id/txtStartTime"
+        android:progressBackgroundTint="#ffffff"
+        android:progressTint="@color/colorSecundarioOscurecido"
+        android:thumbTint="#ffffff" />
+
+    <TextView
+        android:id="@+id/txtSongTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="525dp"
+        android:layout_marginLeft="340dp"
+        android:layout_alignTop="@+id/sBar"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/montserratregular"
+        android:text="-03:50" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:layout_width="350dp"
+            android:textSize="40sp"
+            android:textColor="#ffffff"
+            android:alpha="0.5"
+            android:textAlignment="center"
+            android:layout_height="370dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/letraCancionEjemplo"
+            android:gravity="center_horizontal"/>
+    </ScrollView>
+</FrameLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#7C5AE8">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_person_black_18dp"
+        android:id="@+id/image"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/songTitle"
+        android:layout_toRightOf="@id/image"
+        android:id="@+id/songTitle"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/artistText"
+        android:layout_below="@id/songTitle"
+        android:layout_toRightOf="@id/image"
+        android:text="@string/artist"
+        android:textStyle="bold"/>
+</RelativeLayout>

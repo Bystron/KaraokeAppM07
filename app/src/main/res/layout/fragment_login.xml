@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LoginFragment"
+    android:background="@drawable/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/login"
+        android:textStyle="bold"
+        android:layout_marginTop="50sp"
+        android:textColor="#9F81FF"
+        android:textSize="30sp"
+        android:id="@+id/text"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:hint="@string/username"
+        android:textColorHint="#FFF"
+        app:startIconDrawable="@drawable/baseline_person_black_18dp"
+        android:layout_below="@+id/text"
+        android:layout_marginTop="50sp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="#637A65C6"
+        app:errorEnabled="true">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textColor="#FFF"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:hint="@string/password"
+        android:textColorHint="#FFF"
+        app:passwordToggleEnabled="true"
+        android:layout_below="@+id/loginText"
+        android:layout_marginTop="20sp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="#637A65C6"
+        app:errorEnabled="false"
+        app:errorTextAppearance="@string/required_field"
+        app:errorIconDrawable="@drawable/baseline_error_black_18dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:inputType="textPassword"
+            android:textColor="#FFF">
+        </com.google.android.material.textfield.TextInputEditText>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/registerButton"
+        android:layout_marginHorizontal="20sp"
+        android:text="@string/login"
+        android:id="@+id/loginButton"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginHorizontal="20sp"
+        android:text="@string/register"
+        android:id="@+id/registerButton"
+        android:textColor="#FFF"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgotpassword"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:textSize="10sp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
