@@ -21,7 +21,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/artistText"
+        android:text="String Image"
+        android:layout_toRightOf="@id/songTitle"
+        android:id="@+id/albumImage"
+        android:layout_marginLeft="40dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/artistName"
         android:layout_below="@id/songTitle"
         android:layout_toRightOf="@id/image"
         android:text="@string/artist"
