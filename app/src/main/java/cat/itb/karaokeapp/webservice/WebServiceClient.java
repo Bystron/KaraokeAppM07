@@ -6,9 +6,16 @@ import retrofit2.http.GET;
 import retrofit2.http.Url;
 
 public interface WebServiceClient {
-    @GET("track.lyrics")
+    @GET("track.lyrics.get?format=jsonp&callback=callback&track_id=1&apikey=05ab4180ffe070543821f5ceec8cceb8")
     Call<TrackData> getLyrics();
 
     @GET()
     Call<TrackData> getLyrics(@Url String url);
+
+
+    @GET("track.get")
+    Call<TrackData> getTracks();
+
+    @GET()
+    Call<TrackData> getTracks(@Url String url);
 }
