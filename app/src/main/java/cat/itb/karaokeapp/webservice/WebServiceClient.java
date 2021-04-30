@@ -12,8 +12,12 @@ public interface WebServiceClient {
     @GET()
     Call<Data> getLyrics(@Url String url);
 
-    @GET("chart.tracks.get?page=1&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8")
+    @GET("chart.tracks.get&apikey=05ab4180ffe070543821f5ceec8cceb8")
     Call<Data> getTracks();
+
+    //@GET("chart.tracks.get&apikey=05ab4180ffe070543821f5ceec8cceb8")
+    //Call<TrackData> getTracks();
+
 
     @GET()
     Call<Data> getTracks(@Url String url);

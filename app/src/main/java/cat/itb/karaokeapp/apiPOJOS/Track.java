@@ -24,4 +24,9 @@ public class Track {
     public void setArtist_name(String artist_name) {
         this.artist_name = artist_name;
     }
+
+    public Track(String track_name, String artist_name) {
+        this.track_name = track_name;
+        this.artist_name = artist_name;
+    }
 }

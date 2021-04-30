@@ -14,6 +14,7 @@ import cat.itb.karaokeapp.R;
 import cat.itb.karaokeapp.apiPOJOS.Track;
 
 public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackHolder>{
+    private int layout;
     private List<Track> tracks;
     private OnItemClickListener itemClickListener;
 
@@ -21,8 +22,9 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackHolder>
         void onItemClick(Track name, int position);
     }
 
-    public TrackAdapter(List<Track> tracks, OnItemClickListener listener) {
+    public TrackAdapter(List<Track> tracks, int layout, OnItemClickListener listener) {
         this.tracks = tracks;
+        this.layout = layout;
         this.itemClickListener = listener;
     }
 
@@ -35,7 +37,7 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackHolder>
     @NonNull
     @Override
     public TrackHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(this.layout, parent, false);
         return new TrackHolder(v);
     }
 
