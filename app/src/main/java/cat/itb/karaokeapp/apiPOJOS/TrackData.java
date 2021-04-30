@@ -1,9 +1,7 @@
 package cat.itb.karaokeapp.apiPOJOS;
 
-import java.util.List;
-
 public class TrackData {
-    private String count;
+/*    private String count;
     private String next;
     private String previous;
     private List<Track> results;
@@ -38,5 +36,5 @@ public class TrackData {
 
     public void setResults(List<Track> results) {
         this.results = results;
-    }
+    }*/
 }

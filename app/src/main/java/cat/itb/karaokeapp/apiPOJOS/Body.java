@@ -2,28 +2,27 @@ package cat.itb.karaokeapp.apiPOJOS;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Body {
     //pillar las lyrics
-    @SerializedName("lyrics")
-    private Lyrics lyrics;
 
     //pillar las tracks
-    @SerializedName("track")
-    private Track tracks;
+    @SerializedName("track_list")
+    private List<Track> tracks;
 
-    public Track getTracks() {
+    public List<Track> getTracks() {
         return tracks;
     }
 
-    public void setTracks(Track tracks) {
+    public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
 
-    public Lyrics getLyrics() {
-        return lyrics;
-    }
-
-    public void setLyrics(Lyrics lyrics) {
-        this.lyrics = lyrics;
+    @Override
+    public String toString() {
+        return "Body{" +
+                "tracks=" + tracks +
+                '}';
     }
 }

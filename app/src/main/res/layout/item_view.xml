@@ -4,35 +4,21 @@
     android:layout_height="wrap_content"
     android:background="#7C5AE8">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_person_black_18dp"
-        android:id="@+id/image"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/songTitle"
-        android:layout_toRightOf="@id/image"
-        android:id="@+id/songTitle"
-        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="String Image"
-        android:layout_toRightOf="@id/songTitle"
-        android:id="@+id/albumImage"
-        android:layout_marginLeft="40dp"
+        android:text="@string/songTitle"
+        android:id="@+id/songTitle"
         android:textStyle="bold"/>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/artistName"
         android:layout_below="@id/songTitle"
-        android:layout_toRightOf="@id/image"
+        android:layout_toRightOf="@id/songTitle"
         android:text="@string/artist"
         android:textStyle="bold"/>
 </RelativeLayout>

@@ -44,7 +44,6 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackHolder>
     public void onBindViewHolder(@NonNull TrackAdapter.TrackHolder holder, int position) {
         holder.textViewTrackName.setText(tracks.get(position).getTrack_name());
         holder.textViewArtistName.setText(tracks.get(position).getArtist_name());
-        holder.textViewImage.setText(tracks.get(position).getImage());
         holder.bind(this.tracks.get(position), this.itemClickListener);
     }
 
@@ -56,13 +55,11 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackHolder>
     public class TrackHolder extends RecyclerView.ViewHolder {
         TextView textViewTrackName;
         TextView textViewArtistName;
-        TextView textViewImage;
 
         public TrackHolder(@NonNull View itemView) {
             super(itemView);
             textViewTrackName = itemView.findViewById(R.id.songTitle);
             textViewArtistName = itemView.findViewById(R.id.artistName);
-            textViewImage = itemView.findViewById(R.id.albumImage);
 
         }
         public void bind(final Track name, final OnItemClickListener listener) {

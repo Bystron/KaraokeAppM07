@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,8 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cat.itb.karaokeapp.adapter.TrackAdapter;
+import cat.itb.karaokeapp.apiPOJOS.Data;
 import cat.itb.karaokeapp.apiPOJOS.Track;
-import cat.itb.karaokeapp.apiPOJOS.TrackData;
 import cat.itb.karaokeapp.webservice.WebServiceClient;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -30,6 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SearchFragment extends Fragment {
 
@@ -71,6 +73,13 @@ public class SearchFragment extends Fragment {
 
         recycler = v.findViewById(R.id.recyclerView);
         tracks = new ArrayList<Track>();
+        adapter = new TrackAdapter(tracks, new TrackAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Track name, int position) {
+                Toast.makeText(getActivity(), "HAS CLICAT A UN", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -97,7 +106,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-  //      lanzarPeticion();
+        lanzarPeticion();
 
         buscadorText.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -119,7 +128,7 @@ public class SearchFragment extends Fragment {
     }
 
 
-/*    private void lanzarPeticion() {
+    private void lanzarPeticion() {
         loggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
         httpClientBuilder = new OkHttpClient.Builder().addInterceptor(loggingInterceptor);
 
@@ -129,23 +138,22 @@ public class SearchFragment extends Fragment {
                 .build();
 
         WebServiceClient client = retrofit.create(WebServiceClient.class);
-        Call<TrackData> call = client.getTracks();
-        call.enqueue(new Callback<TrackData>() {
+        Call<Data> call = client.getTracks();
+        call.enqueue(new Callback<Data>() {
             @Override
-            public void onResponse(Call<TrackData> call, Response<TrackData> response) {
-                adapter.setTracks(response.body().getResults());
-
+            public void onResponse(Call<Data> call, Response<Data> response) {
+                adapter.setTracks(response.body().getMessage().getBody().getTracks());
             }
 
             @Override
-            public void onFailure(Call<TrackData> call, Throwable t) {
+            public void onFailure(Call<Data> call, Throwable t) {
                 Log.d("TAG1", "Error: " + t.getMessage());
             }
         });
-    }*/
+    }
 
     public void searchTracks() {
-        trackBuscada = buscadorText.getText().toString();
+/*        trackBuscada = buscadorText.getText().toString();
         WebServiceClient client = retrofit.create(WebServiceClient.class);
         Call<TrackData> call = client.getTracks("http://api.musixmatch.com/ws/1.1/track.search?q_track=" + trackBuscada + "&apikey=05ab4180ffe070543821f5ceec8cceb8");
         call.enqueue(new Callback<TrackData>() {
@@ -158,7 +166,7 @@ public class SearchFragment extends Fragment {
             public void onFailure(Call<TrackData> call, Throwable t) {
                 Log.d("TAG1", "Error: " + t.getMessage());
             }
-        });
+        });*/
     }
 
 

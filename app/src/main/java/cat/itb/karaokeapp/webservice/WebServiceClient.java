@@ -1,5 +1,6 @@
 package cat.itb.karaokeapp.webservice;
 
+import cat.itb.karaokeapp.apiPOJOS.Data;
 import cat.itb.karaokeapp.apiPOJOS.TrackData;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,9 +13,12 @@ public interface WebServiceClient {
     @GET()
     Call<TrackData> getLyrics(@Url String url);
 
+    @GET("chart.tracks.get&apikey=05ab4180ffe070543821f5ceec8cceb8")
+    Call<Data> getTracks();
 
-    @GET("track.get")
-    Call<TrackData> getTracks();
+    //@GET("chart.tracks.get&apikey=05ab4180ffe070543821f5ceec8cceb8")
+    //Call<TrackData> getTracks();
+
 
     @GET()
     Call<TrackData> getTracks(@Url String url);

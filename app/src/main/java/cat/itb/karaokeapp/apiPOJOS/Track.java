@@ -9,17 +9,6 @@ public class Track {
     @SerializedName("artist_name")
     private String artist_name;
 
-    @SerializedName("album_coverart_500x500")
-    private String image;
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public String getTrack_name() {
         return track_name;
     }

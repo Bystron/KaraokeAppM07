@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class Message {
     @SerializedName("body")
- //   @Expose
     private Body body;
 
     public Body getBody() {
