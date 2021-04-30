@@ -56,6 +56,8 @@ public class SearchFragment extends Fragment {
     Button anterior;
     Button siguiente;
 
+    int numpag = 1;
+
     String isNext;
     String isPrevious;
 
@@ -78,15 +80,18 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search, container, false);
 
+        isPrevious = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8";
+        isNext = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8";
+
+
         recycler = v.findViewById(R.id.recyclerView);
         tracks = new ArrayList<Track>();
         adapter = new TrackAdapter(tracks, new TrackAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Track name, int position) {
-                Toast.makeText(getActivity(), "HAS CLICAT A UN", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "La cançó es diu" + name.getArtist_name(), Toast.LENGTH_SHORT).show();
             }
         });
-
 
         recycler.setAdapter(adapter);
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -137,7 +142,10 @@ public class SearchFragment extends Fragment {
         anterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToPage(isPrevious);
+                if (numpag != 0 && numpag > 0) {
+                    numpag--;
+                    goToPage(isPrevious);
+                }
             }
         });
 
@@ -145,6 +153,7 @@ public class SearchFragment extends Fragment {
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                numpag++;
                 goToPage(isNext);
             }
 
@@ -195,13 +204,6 @@ public class SearchFragment extends Fragment {
         });
     }
 
-    private void comprovarButtons(String PrevONext, Button button) {
-        if (PrevONext == null) {
-            button.setVisibility(View.INVISIBLE);
-        } else {
-            button.setVisibility(View.VISIBLE);
-        }
-    }
 
     private void goToPage(String url) {
 
@@ -211,10 +213,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
                 adapter.setTracks(response.body().getMessage().getBody().getTracks());
-                isNext = response.body().getNext();
-                isPrevious = response.body().getPrevious();
-                comprovarButtons(isNext, siguiente);
-                comprovarButtons(isPrevious, anterior);
+
             }
 
             @Override
