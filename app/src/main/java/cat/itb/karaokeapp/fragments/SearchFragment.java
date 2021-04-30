@@ -75,10 +75,6 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search, container, false);
 
-        isPrevious = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8";
-        isNext = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8";
-
-
         recycler = v.findViewById(R.id.recyclerView);
         tracks = new ArrayList<Track>();
         adapter = new TrackAdapter(tracks,R.layout.item_view, new TrackAdapter.OnItemClickListener() {
@@ -183,6 +179,9 @@ public class SearchFragment extends Fragment {
 
     private void goToPage(String url) {
 
+        isPrevious = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8";
+        isNext = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8";
+
         WebServiceClient client = retrofit.create(WebServiceClient.class);
         Call<Data> call = client.getTracks(url);
         call.enqueue(new Callback<Data>() {
@@ -199,7 +198,4 @@ public class SearchFragment extends Fragment {
         });
     }
 
-    private void changeFragment(android.app.Fragment currentFragment) {
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
-    }
 }
