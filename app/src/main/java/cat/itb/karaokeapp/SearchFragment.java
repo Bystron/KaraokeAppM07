@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -52,6 +53,12 @@ public class SearchFragment extends Fragment {
 
     String trackBuscada;
 
+    Button anterior;
+    Button siguiente;
+
+    String isNext;
+    String isPrevious;
+
 
     public SearchFragment() {
         // Required empty public constructor
@@ -85,6 +92,10 @@ public class SearchFragment extends Fragment {
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
         buscadorText = v.findViewById(R.id.searchBar);
+
+        anterior = v.findViewById(R.id.previousButton);
+        siguiente = v.findViewById(R.id.nextButton);
+
         botonBuscador = v.findViewById(R.id.searchButton);
         bottomNavigationView = v.findViewById(R.id.bottom_navigation);
 
@@ -123,6 +134,21 @@ public class SearchFragment extends Fragment {
                 searchTracks();
             }
         });
+        anterior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToPage(isPrevious);
+            }
+        });
+
+
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToPage(isNext);
+            }
+
+        });
         return v;
 
     }
@@ -153,22 +179,50 @@ public class SearchFragment extends Fragment {
     }
 
     public void searchTracks() {
-/*        trackBuscada = buscadorText.getText().toString();
+        trackBuscada = buscadorText.getText().toString();
         WebServiceClient client = retrofit.create(WebServiceClient.class);
-        Call<TrackData> call = client.getTracks("http://api.musixmatch.com/ws/1.1/track.search?q_track=" + trackBuscada + "&apikey=05ab4180ffe070543821f5ceec8cceb8");
-        call.enqueue(new Callback<TrackData>() {
+        Call<Data> call = client.getTracks("http://api.musixmatch.com/ws/1.1/track.search?q_track=" + trackBuscada + "&apikey=05ab4180ffe070543821f5ceec8cceb8");
+        call.enqueue(new Callback<Data>() {
             @Override
-            public void onResponse(Call<TrackData> call, Response<TrackData> response) {
-                adapter.setTracks(response.body().getResults());
+            public void onResponse(Call<Data> call, Response<Data> response) {
+                adapter.setTracks(response.body().getMessage().getBody().getTracks());
             }
 
             @Override
-            public void onFailure(Call<TrackData> call, Throwable t) {
+            public void onFailure(Call<Data> call, Throwable t) {
                 Log.d("TAG1", "Error: " + t.getMessage());
             }
-        });*/
+        });
     }
 
+    private void comprovarButtons(String PrevONext, Button button) {
+        if (PrevONext == null) {
+            button.setVisibility(View.INVISIBLE);
+        } else {
+            button.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void goToPage(String url) {
+
+        WebServiceClient client = retrofit.create(WebServiceClient.class);
+        Call<Data> call = client.getTracks(url);
+        call.enqueue(new Callback<Data>() {
+            @Override
+            public void onResponse(Call<Data> call, Response<Data> response) {
+                adapter.setTracks(response.body().getMessage().getBody().getTracks());
+                isNext = response.body().getNext();
+                isPrevious = response.body().getPrevious();
+                comprovarButtons(isNext, siguiente);
+                comprovarButtons(isPrevious, anterior);
+            }
+
+            @Override
+            public void onFailure(Call<Data> call, Throwable t) {
+                Log.d("TAG1", "Error: " + t.getMessage());
+            }
+        });
+    }
 
     private void changeFragment(android.app.Fragment currentFragment) {
         getFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
