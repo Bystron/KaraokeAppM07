@@ -9,9 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import cat.itb.karaokeapp.R;
 
@@ -28,6 +35,8 @@ public class RegisterFragment extends Fragment {
     CheckBox termsBox;
     Button login;
     Button register;
+    ProgressBar progressBar;
+    FirebaseAuth fAuth;
 
 
     public RegisterFragment() {
@@ -61,6 +70,13 @@ public class RegisterFragment extends Fragment {
         login = v.findViewById(R.id.loginButton);
         register = v.findViewById(R.id.registerButton);
 
+        progressBar = v.findViewById(R.id.progressBar2);
+        fAuth = FirebaseAuth.getInstance();
+
+        if(fAuth.getCurrentUser() != null){
+            changeFragment(new UserContentFragment());
+        }
+
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +85,21 @@ public class RegisterFragment extends Fragment {
                 boolean pass = checkData();
 
                 if(pass){
-
-                    changeFragment(new UserContentFragment());
+                    String email = emailText.getEditText().getText().toString();
+                    String password = passwordText.getEditText().getText().toString();
+                    progressBar.setVisibility(View.VISIBLE);
+                    fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(getActivity(), "Registered and logged in successfully.", Toast.LENGTH_SHORT).show();
+                                changeFragment(new UserContentFragment());
+                            }else{
+                                Toast.makeText(getActivity(), "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.INVISIBLE);
+                            }
+                        }
+                    });
 
                 }else{
 

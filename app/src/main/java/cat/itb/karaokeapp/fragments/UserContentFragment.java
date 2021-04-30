@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import cat.itb.karaokeapp.R;
 
@@ -68,6 +69,7 @@ public class UserContentFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                FirebaseAuth.getInstance().signOut();
                 changeFragment(R.id.fragment_container, new IntroFragment());
 
             }

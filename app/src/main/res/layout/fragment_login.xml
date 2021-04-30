@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
-        android:hint="@string/username"
+        android:hint="@string/mail"
         android:textColorHint="#FFF"
         app:startIconDrawable="@drawable/baseline_person_black_18dp"
         android:layout_below="@+id/text"
@@ -98,5 +98,15 @@
         android:textSize="10sp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordText"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:layout_marginTop="102dp" />
 
 </RelativeLayout>
