@@ -4,4 +4,7 @@
     <color name="colorBlanco">#ffffff</color>
     <color name="colorSecundario">#D288F2</color>
     <color name="colorSecundarioOscurecido">#5F189D</color>
+    <color name="colorAmarillo">#FFEB3B</color>
+    <color name="colorVerde">#3BCF34</color>
+    <color name="colorGris">#646464</color>
 </resources>

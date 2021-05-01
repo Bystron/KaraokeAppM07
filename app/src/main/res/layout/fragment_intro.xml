@@ -4,26 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IntroFragment"
+    tools:context=".fragments.IntroFragment"
     android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title"
-        android:textColor="#FF9F81FF"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
-        android:id="@+id/text" />
+        android:fontFamily="@font/montserratblack"
+        android:id="@+id/text"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/imageStart"
+        android:textColor="@color/colorSecundarioOscurecido"
+        android:textSize="30dp"/>
+
+    <ImageView
+        android:id="@+id/imageStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_centerInParent="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_marginHorizontal="20sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200sp"
+        android:layout_marginTop="30sp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/text"
+        android:layout_below="@id/imageStart"
         android:text="@string/login"
         android:id="@+id/loginButton"/>
 

@@ -2,28 +2,56 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#7C5AE8">
+    android:background="@color/colorPrimario"
+    android:layout_margin="5dp"
+    android:elevation="10dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_person_black_18dp"
-        android:id="@+id/image"
-        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/songTitle"
-        android:layout_toRightOf="@id/image"
+        android:text="Song title:"
+        android:id="@+id/songTitleText"
+        android:textSize="28dp"
+        android:textColor="@color/colorAmarillo"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We're Good"
         android:id="@+id/songTitle"
+        android:textSize="28dp"
+        android:layout_toRightOf="@+id/songTitleText"
+        android:textColor="@color/colorAmarillo"
+        android:layout_marginLeft="10dp"
         android:textStyle="bold"/>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/artistText"
+        android:id="@+id/artistNameText"
+        android:textSize="20dp"
         android:layout_below="@id/songTitle"
-        android:layout_toRightOf="@id/image"
-        android:text="@string/artist"
+        android:textColor="@color/colorAmarillo"
+        android:text="Artist Name:"
+        android:layout_marginLeft="10dp"
         android:textStyle="bold"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/artistName"
+        android:textSize="20dp"
+        android:layout_toRightOf="@+id/artistNameText"
+        android:layout_below="@+id/songTitleText"
+        android:textColor="@color/colorAmarillo"
+        android:text="Dua Lipa"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"/>
+
+
+
 </RelativeLayout>
