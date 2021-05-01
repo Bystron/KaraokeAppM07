@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import cat.itb.karaokeapp.R;
 
-//Clase para hacer login
+//Clase para hacer login utilizando Firebase.
 public class LoginFragment extends Fragment {
 
     TextInputLayout username;

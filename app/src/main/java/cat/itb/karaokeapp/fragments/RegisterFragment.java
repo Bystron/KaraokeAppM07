@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import cat.itb.karaokeapp.R;
 
+//Clase que se encarga de registrar usuarios utilizando Firebase.
 public class RegisterFragment extends Fragment {
 
     TextInputLayout usernameText;

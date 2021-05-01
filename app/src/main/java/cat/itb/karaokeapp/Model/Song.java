@@ -1,5 +1,7 @@
 package cat.itb.karaokeapp.Model;
 
+//Model que se utilizaria para mostrar las lyrics, imagen, artista, titulo y que sonara la cancion
+// si la API funcionara i no nos devolviera null en todos los valores.
 public class Song {
 
     private String Artist;

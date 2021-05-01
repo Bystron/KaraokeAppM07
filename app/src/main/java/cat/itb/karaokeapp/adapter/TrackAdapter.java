@@ -13,6 +13,7 @@ import java.util.List;
 import cat.itb.karaokeapp.R;
 import cat.itb.karaokeapp.apiPOJOS.Track;
 
+//Adapter con el que mostramos todas las listas de elementos utilizando la API.
 public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackHolder>{
     private int layout;
     private List<Track> tracks;

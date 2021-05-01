@@ -5,6 +5,8 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Url;
 
+//Todas las llamadas a la API para todas las listas que tenemos, y la consulta con searchBar.
+//También una llamada para recoger las lyrics si estas pudieran recogerse y no devolvieran null.
 public interface WebServiceClient {
 
     @GET()

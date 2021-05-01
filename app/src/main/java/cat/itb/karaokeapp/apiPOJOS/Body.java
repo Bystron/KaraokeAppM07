@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Body {
-    //pillar las lyrics
 
-    //pillar las tracks
+    //POJO que utilizamos para coger todas los elementos de track_list, que a su vez está dentro de body.
+
     @SerializedName("track_list")
     private List<Track> tracks;
 
