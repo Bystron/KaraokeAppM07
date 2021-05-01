@@ -31,6 +31,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+//Clase que controla la búsqueda de las canciones a través de la API musixmatch, si no devolviera valores nulls funcionaría :_D.
 public class SearchFragment extends Fragment {
 
     private RecyclerView recycler;
@@ -58,7 +59,6 @@ public class SearchFragment extends Fragment {
 
 
     public SearchFragment() {
-        // Required empty public constructor
     }
 
 
@@ -134,7 +134,7 @@ public class SearchFragment extends Fragment {
 
     }
 
-
+    //Método que lanza la petición para obtener todas las canciones de la API
     private void lanzarPeticion() {
         loggingInterceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
         httpClientBuilder = new OkHttpClient.Builder().addInterceptor(loggingInterceptor);
@@ -159,10 +159,11 @@ public class SearchFragment extends Fragment {
         });
     }
 
+    //Método para buscar la canción según el nombre que se haya puesto en el EditText
     public void searchTracks() {
         trackBuscada = buscadorText.getText().toString();
         WebServiceClient client = retrofit.create(WebServiceClient.class);
-        Call<Data> call = client.getTracks("http://api.musixmatch.com/ws/1.1/track.search?q_track=" + trackBuscada + "&apikey=05ab4180ffe070543821f5ceec8cceb8");
+        Call<Data> call = client.getTracks("http://api.musixmatch.com/ws/1.1/track.search?q_track=" + trackBuscada + "&apikey=dbeb843956759fd467bb823266c749a6");
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
@@ -176,11 +177,11 @@ public class SearchFragment extends Fragment {
         });
     }
 
-
+    //Método para cambiar entre los resultados de las diferentes páginas
     private void goToPage(String url) {
 
-        isPrevious = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8";
-        isNext = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=05ab4180ffe070543821f5ceec8cceb8";
+        isPrevious = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=dbeb843956759fd467bb823266c749a6";
+        isNext = "https://api.musixmatch.com/ws/1.1/chart.tracks.get?page=" + numpag + "&page_size=8&apikey=dbeb843956759fd467bb823266c749a6";
 
         WebServiceClient client = retrofit.create(WebServiceClient.class);
         Call<Data> call = client.getTracks(url);

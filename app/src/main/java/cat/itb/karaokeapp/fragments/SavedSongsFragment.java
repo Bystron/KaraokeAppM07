@@ -18,6 +18,7 @@ import cat.itb.karaokeapp.R;
 import cat.itb.karaokeapp.adapter.TrackAdapter;
 import cat.itb.karaokeapp.apiPOJOS.Track;
 
+//Clase que guarda los datos de las canciones guardadas por el usuario
 public class SavedSongsFragment extends Fragment {
 
     private List<Track> savedSongs;
@@ -43,7 +44,7 @@ public class SavedSongsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View v = inflater.inflate(R.layout.fragment_saved_songs, container, false);
 
         recyclerSaved = v.findViewById(R.id.recyclerSaved);
@@ -61,6 +62,7 @@ public class SavedSongsFragment extends Fragment {
         return v;
     }
 
+    //Método para obtener todas las canciones guardadas si la API funcionara.
     private List<Track> getAllSavedSongs(){
 
         return new ArrayList<Track>(){{
@@ -92,6 +94,7 @@ public class SavedSongsFragment extends Fragment {
 
     }
 
+    //Método para
     private void changeFragment(android.app.Fragment currentFragment) {
         getFragmentManager().beginTransaction().replace(R.id.content, currentFragment).commit();
     }

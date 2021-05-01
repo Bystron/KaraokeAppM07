@@ -1,7 +1,5 @@
 package cat.itb.karaokeapp.Model;
 
-import android.graphics.drawable.Drawable;
-
 public class Song {
 
     private String Artist;

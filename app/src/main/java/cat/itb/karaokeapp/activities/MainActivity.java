@@ -11,7 +11,7 @@ import cat.itb.karaokeapp.fragments.IntroFragment;
 import cat.itb.karaokeapp.R;
 import cat.itb.karaokeapp.fragments.UserContentFragment;
 
-
+//Activity de inicio de la aplicación.
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;

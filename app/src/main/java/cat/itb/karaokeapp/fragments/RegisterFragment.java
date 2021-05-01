@@ -124,60 +124,61 @@ public class RegisterFragment extends Fragment {
         return v;
     }
 
+    //Método que comprueba todos los datos antes de registrarte.
     private boolean checkData(){
 
-        if(!usernameText.getEditText().getText().toString().isEmpty()){
-            if(!passwordText.getEditText().getText().toString().isEmpty()){
-                if(!repeatPassword.getEditText().getText().toString().isEmpty()){
-                    if(!emailText.getEditText().getText().toString().isEmpty()){
-                        if(!nameText.getEditText().getText().toString().isEmpty()){
-                            if(!surnameText.getEditText().getText().toString().isEmpty()){
-                                if(!birthdateText.getEditText().toString().isEmpty()){
-                                    if(!gender.getEditText().getText().toString().isEmpty()){
-                                        if(termsBox.isChecked()){
-                                            return true;
-                                        }else{
-                                            termsBox.setError(getString(R.string.required_field));
-                                            gender.setErrorEnabled(false);
-                                        }
-                                    }else{
-                                        gender.setErrorEnabled(true);
-                                        gender.setError(getString(R.string.required_field));
-                                        birthdateText.setErrorEnabled(false);
-                                    }
-                                }else{
-                                    birthdateText.setErrorEnabled(true);
-                                    birthdateText.setError(getString(R.string.required_field));
-                                    surnameText.setErrorEnabled(false);
-                                }
-                            }else{
-                                surnameText.setErrorEnabled(true);
-                                surnameText.setError(getString(R.string.required_field));
-                                nameText.setErrorEnabled(false);
-                            }
-                        }else{
-                            nameText.setErrorEnabled(true);
-                            nameText.setError(getString(R.string.required_field));
-                            emailText.setErrorEnabled(false);
-                        }
-                    }else{
-                        emailText.setErrorEnabled(true);
-                        emailText.setError(getString(R.string.required_field));
-                        repeatPassword.setErrorEnabled(false);
-                    }
-                }else{
-                    repeatPassword.setErrorEnabled(true);
-                    repeatPassword.setError(getString(R.string.required_field));
-                    passwordText.setErrorEnabled(false);
-                }
-            }else{
-                passwordText.setErrorEnabled(true);
-                passwordText.setError(getString(R.string.required_field));
-                nameText.setErrorEnabled(false);
-            }
-        }else{
+        if(usernameText.getEditText().getText().toString().isEmpty()) {
             usernameText.setErrorEnabled(true);
             usernameText.setError(getString(R.string.required_field));
+            return false;
+        }
+        if(passwordText.getEditText().getText().toString().isEmpty()){
+            passwordText.setErrorEnabled(true);
+            passwordText.setError(getString(R.string.required_field));
+            nameText.setErrorEnabled(false);
+            return false;
+        }
+        if(repeatPassword.getEditText().getText().toString().isEmpty()){
+            repeatPassword.setErrorEnabled(true);
+            repeatPassword.setError(getString(R.string.required_field));
+            passwordText.setErrorEnabled(false);
+            return false;
+        }
+        if(emailText.getEditText().getText().toString().isEmpty()){
+            emailText.setErrorEnabled(true);
+            emailText.setError(getString(R.string.required_field));
+            repeatPassword.setErrorEnabled(false);
+            return false;
+        }
+        if(nameText.getEditText().getText().toString().isEmpty()){
+            nameText.setErrorEnabled(true);
+            nameText.setError(getString(R.string.required_field));
+            emailText.setErrorEnabled(false);
+            return false;
+        }
+        if(surnameText.getEditText().getText().toString().isEmpty()){
+            surnameText.setErrorEnabled(true);
+            surnameText.setError(getString(R.string.required_field));
+            nameText.setErrorEnabled(false);
+            return false;
+        }
+        if(birthdateText.getEditText().toString().isEmpty()){
+            birthdateText.setErrorEnabled(true);
+            birthdateText.setError(getString(R.string.required_field));
+            surnameText.setErrorEnabled(false);
+            return false;
+        }
+        if(gender.getEditText().getText().toString().isEmpty()){
+            gender.setErrorEnabled(true);
+            gender.setError(getString(R.string.required_field));
+            birthdateText.setErrorEnabled(false);
+            return false;
+        }
+        if(termsBox.isChecked()){
+            return true;
+        }else{
+            termsBox.setError(getString(R.string.required_field));
+            gender.setErrorEnabled(false);
         }
 
         return false;

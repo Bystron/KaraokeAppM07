@@ -12,13 +12,14 @@ import android.widget.Button;
 
 import cat.itb.karaokeapp.R;
 
+//Clase que muestra la pantalla de inicio al usuario.
 public class IntroFragment extends Fragment {
 
     Button loginButton;
     Button registerButton;
 
     public IntroFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -51,6 +52,7 @@ public class IntroFragment extends Fragment {
         return v;
     }
 
+    //Método para cambiar el fragment actual.
     private void changeFragment(Fragment currentFragment) {
         getFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
     }

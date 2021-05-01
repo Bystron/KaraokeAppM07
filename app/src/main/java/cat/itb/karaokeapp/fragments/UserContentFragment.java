@@ -18,13 +18,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import cat.itb.karaokeapp.R;
 
-
+//Clase que controla la navegación del usuario.
 public class UserContentFragment extends Fragment {
 
     BottomNavigationView bottomNavigationView;
 
     Button logout;
-    Toolbar toolbar;
 
     public UserContentFragment() {
     }
@@ -41,7 +40,7 @@ public class UserContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View v = inflater.inflate(R.layout.fragment_user_content, container, false);
 
         bottomNavigationView = v.findViewById(R.id.bottom_navigation);
@@ -78,6 +77,7 @@ public class UserContentFragment extends Fragment {
         return v;
     }
 
+    //Método para cambiar el fragmento actual.
     private void changeFragment(int layout ,Fragment currentFragment) {
         getFragmentManager().beginTransaction().replace(layout, currentFragment).commit();
     }

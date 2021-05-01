@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import cat.itb.karaokeapp.R;
 
+//Clase para hacer login
 public class LoginFragment extends Fragment {
 
     TextInputLayout username;
@@ -97,6 +98,7 @@ public class LoginFragment extends Fragment {
         return v;
     }
 
+    //Método que verifica los datos del login.
     private boolean checkData(){
         if(!username.getEditText().getText().toString().isEmpty()){
             if(!psswd.getEditText().getText().toString().isEmpty()){

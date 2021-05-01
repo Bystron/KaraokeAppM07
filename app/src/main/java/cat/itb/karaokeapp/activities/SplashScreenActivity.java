@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import cat.itb.karaokeapp.R;
 
+//Activity que muestra la splash screen de la aplicación.
 public class SplashScreenActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 2000;
@@ -21,12 +22,10 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
+
                 Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(i);
 
-                // close this activity
                 finish();
             }
         }, SPLASH_TIME_OUT);

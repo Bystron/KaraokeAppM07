@@ -3,6 +3,7 @@ package cat.itb.karaokeapp.apiPOJOS;
 import com.google.gson.annotations.SerializedName;
 
 public class Track {
+
     @SerializedName("track_name")
     private String track_name;
 
@@ -28,5 +29,13 @@ public class Track {
     public Track(String track_name, String artist_name) {
         this.track_name = track_name;
         this.artist_name = artist_name;
+    }
+
+    @Override
+    public String toString() {
+        return "Track{" +
+                "track_name='" + track_name + '\'' +
+                ", artist_name='" + artist_name + '\'' +
+                '}';
     }
 }
