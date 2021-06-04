@@ -45,8 +45,8 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TrackHolder>
 
     @Override
     public void onBindViewHolder(@NonNull TrackAdapter.TrackHolder holder, int position) {
-        holder.textViewTrackName.setText(tracks.get(position).getTrack_name());
-        holder.textViewArtistName.setText(tracks.get(position).getArtist_name());
+        holder.textViewTrackName.setText(tracks.get(position).getTrackInfo().getTrack_name());
+        holder.textViewArtistName.setText(tracks.get(position).getTrackInfo().getArtist_name());
         holder.bind(this.tracks.get(position), this.itemClickListener);
     }
 

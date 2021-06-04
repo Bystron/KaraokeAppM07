@@ -17,6 +17,7 @@ import java.util.List;
 import cat.itb.karaokeapp.R;
 import cat.itb.karaokeapp.adapter.TrackAdapter;
 import cat.itb.karaokeapp.apiPOJOS.Track;
+import cat.itb.karaokeapp.apiPOJOS.TrackInfo;
 
 //Clase que guarda los datos de las canciones guardadas por el usuario
 public class SavedSongsFragment extends Fragment {
@@ -66,30 +67,15 @@ public class SavedSongsFragment extends Fragment {
     private List<Track> getAllSavedSongs(){
 
         return new ArrayList<Track>(){{
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
+            add(new Track(new TrackInfo("Test", "Test")));
+            add(new Track(new TrackInfo("Test", "Test")));
+            add(new Track(new TrackInfo("Test", "Test")));
+            add(new Track(new TrackInfo("Test", "Test")));
+            add(new Track(new TrackInfo("Test", "Test")));
+            add(new Track(new TrackInfo("Test", "Test")));
+            add(new Track(new TrackInfo("Test", "Test")));
+            add(new Track(new TrackInfo("Test", "Test")));
+
         }};
 
     }

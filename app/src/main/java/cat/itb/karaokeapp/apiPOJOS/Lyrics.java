@@ -15,4 +15,11 @@ public class Lyrics {
     public void setLyrics_body(String lyrics_body) {
         this.lyrics_body = lyrics_body;
     }
+
+    @Override
+    public String toString() {
+        return "Lyrics{" +
+                "lyrics_body='" + lyrics_body + '\'' +
+                '}';
+    }
 }

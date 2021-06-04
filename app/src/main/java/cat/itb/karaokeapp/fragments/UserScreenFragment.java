@@ -12,13 +12,18 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import cat.itb.karaokeapp.R;
 import cat.itb.karaokeapp.adapter.TrackAdapter;
 import cat.itb.karaokeapp.apiPOJOS.Data;
+import cat.itb.karaokeapp.apiPOJOS.Message;
 import cat.itb.karaokeapp.apiPOJOS.Track;
+import cat.itb.karaokeapp.apiPOJOS.TrackInfo;
 import cat.itb.karaokeapp.webservice.WebServiceClient;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -58,7 +63,6 @@ public class UserScreenFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         popSongs = this.getAllPopSongs();
-        recSongs = this.getAllRecSongs();
 
     }
 
@@ -78,17 +82,11 @@ public class UserScreenFragment extends Fragment {
                 changeFragment(new LyricsFragment());
             }
         });
-        adapterRec = new TrackAdapter(recSongs, R.layout.item_view, new TrackAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Track name, int position) {
-                changeFragment(new LyricsFragment());
-            }
-        });
+
 
         recyclerPopular.setLayoutManager(layoutManager);
         recyclerPopular.setAdapter(adapter);
-        recyclerRec.setLayoutManager(layoutManagerRec);
-        recyclerRec.setAdapter(adapterRec);
+
 
         lanzarPeticion();
 
@@ -105,42 +103,18 @@ public class UserScreenFragment extends Fragment {
     private List<Track> getAllPopSongs(){
 
         return new ArrayList<Track>(){{
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
+            add(new Track(new TrackInfo("test", "test")));
+            add(new Track(new TrackInfo("test", "test")));
+            add(new Track(new TrackInfo("test", "test")));
+            add(new Track(new TrackInfo("test", "test")));
+            add(new Track(new TrackInfo("test", "test")));
+            add(new Track(new TrackInfo("test", "test")));
+            add(new Track(new TrackInfo("test", "test")));
+            add(new Track(new TrackInfo("test", "test")));
         }};
 
     }
 
-    //Método para obtener todas las canciones cantadas recientemente.
-    private List<Track> getAllRecSongs(){
-
-        return new ArrayList<Track>(){{
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-            add(new Track("Test", "Test"));
-
-        }};
-
-    }
 
     //Método que lanza una petición a la API y enseñar las canciones populares en su recycler view.
     private void lanzarPeticion(){
@@ -153,10 +127,13 @@ public class UserScreenFragment extends Fragment {
                 .build();
 
         WebServiceClient client = retrofit.create(WebServiceClient.class);
-        Call<Data> call = client.getTopTracks();
+        Call<Data> call = client.getTracks();
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
+                System.out.println("-------------------------------------------------------------");
+                System.out.println(response.body());
+                System.out.println("-------------------------------------------------------------");
                 adapter.setTracks(response.body().getMessage().getBody().getTracks());
             }
 

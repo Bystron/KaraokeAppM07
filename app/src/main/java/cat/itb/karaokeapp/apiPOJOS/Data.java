@@ -15,4 +15,11 @@ public class Data {
     public void setMessage(Message message) {
         this.message = message;
     }
+
+    @Override
+    public String toString() {
+        return "Data{" +
+                "message=" + message +
+                '}';
+    }
 }
