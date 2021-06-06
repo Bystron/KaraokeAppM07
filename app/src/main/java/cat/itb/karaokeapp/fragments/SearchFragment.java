@@ -86,7 +86,7 @@ public class SearchFragment extends Fragment {
         adapter = new TrackAdapter(tracks,R.layout.item_view, new TrackAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Track name, int position) {
-                Toast.makeText(getActivity(), "La cançó es diu" + name.getTrackInfo().getArtist_name(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "La cançó es diu " + name.getTrackInfo().getTrack_name(), Toast.LENGTH_SHORT).show();
             }
         });
 

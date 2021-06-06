@@ -46,7 +46,7 @@
         android:id="@+id/artistName"
         android:textSize="20dp"
         android:layout_toRightOf="@+id/artistNameText"
-        android:layout_below="@+id/songTitleText"
+        android:layout_below="@+id/songTitle"
         android:textColor="@color/colorAmarillo"
         android:text="Dua Lipa"
         android:layout_marginLeft="10dp"

@@ -127,7 +127,7 @@ public class UserScreenFragment extends Fragment {
                 .build();
 
         WebServiceClient client = retrofit.create(WebServiceClient.class);
-        Call<Data> call = client.getTracks();
+        Call<Data> call = client.getTopTracks();
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {

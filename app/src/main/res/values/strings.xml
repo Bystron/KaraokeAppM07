@@ -75,5 +75,6 @@ Si algún día vuelve a verte</string>
     <string name="back">Go back</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="popular_songs_of_spain">Popular Songs of Spain</string>
 
 </resources>

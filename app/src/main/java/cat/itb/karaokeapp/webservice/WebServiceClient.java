@@ -15,7 +15,7 @@ public interface WebServiceClient {
     @GET("chart.tracks.get&page=1&page_size=8&apikey=dbeb843956759fd467bb823266c749a6")
     Call<Data> getTracks();
 
-    @GET("chart.tracks.get?chart_name=top&page=1&country=it&page_size=8&apikey=dbeb843956759fd467bb823266c749a6")
+    @GET("chart.tracks.get?chart_name=top&page=1&country=es&page_size=8&apikey=dbeb843956759fd467bb823266c749a6")
     Call<Data> getTopTracks();
 
     @GET()
