@@ -32,12 +32,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 //Clase que controla la búsqueda de las canciones a través de la API musixmatch.
-//La API, como se puede ver en el Run, nos devuelve la lista de elementos que queremos, pero por
-//alguna razón ajena los valores de los elementos que queremos recoger, artist_name i track_name,
-//se nos devuelven como null. Como dijiste en clase, probablemente es un error de la API i nos ha dificultado
-//trabajar con ella, hasta el punto de no poder asignar lyrics a las canciones ya que no podemos recogerlas.
-//Las consultas de la API aparecen vacias, pero al ver el Run puedes observar como SÍ funcionan, pero no se muestran por
-//la API, que no es funcional.
 public class SearchFragment extends Fragment {
 
     private RecyclerView recycler;

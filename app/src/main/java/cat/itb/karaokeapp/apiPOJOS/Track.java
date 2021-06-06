@@ -2,9 +2,7 @@ package cat.itb.karaokeapp.apiPOJOS;
 
 import com.google.gson.annotations.SerializedName;
 
-//POJO principal en el cual se recoge los dos valores que queremos de cada track de la API.
-//El track_name i el artist_name. Luego, estos dos valores serian mostrador en los recycler_view si
-//la API funcionara correctamente.
+//POJO que recoge valores dentro del campo track de la API.
 public class Track {
     @SerializedName("track")
     public TrackInfo trackInfo;

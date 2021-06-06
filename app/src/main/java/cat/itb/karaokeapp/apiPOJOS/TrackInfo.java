@@ -1,5 +1,7 @@
 package cat.itb.karaokeapp.apiPOJOS;
 
+//POJO principal en el cual se recoge los dos valores que queremos de cada track de la API.
+//El track_name i el artist_name. Luego, estos dos valores son mostrados en el recyclerview.
 public class TrackInfo {
 
     private String track_name;
