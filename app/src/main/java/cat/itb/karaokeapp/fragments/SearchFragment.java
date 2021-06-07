@@ -86,7 +86,7 @@ public class SearchFragment extends Fragment {
                 bundle.putString("lyricsID", name.getTrackInfo().getTrack_id());
                 LyricsOnClickFragment lyricsOnClickFragment = new LyricsOnClickFragment();
                 lyricsOnClickFragment.setArguments(bundle);
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container, lyricsOnClickFragment).commit();
+                getFragmentManager().beginTransaction().replace(R.id.content, lyricsOnClickFragment).commit();
 
             }
         });

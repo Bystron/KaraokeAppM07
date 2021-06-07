@@ -85,7 +85,7 @@ public class UserScreenFragment extends Fragment {
 
                 LyricsFragment lyricsFragment = new LyricsFragment();
                 lyricsFragment.setArguments(bundle);
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container, lyricsFragment).commit();
+                getFragmentManager().beginTransaction().replace(R.id.content, lyricsFragment).commit();
             }
         });
 
