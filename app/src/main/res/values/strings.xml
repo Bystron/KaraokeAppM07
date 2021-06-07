@@ -76,5 +76,7 @@ Si algún día vuelve a verte</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="popular_songs_of_spain">Popular Songs of Spain</string>
+    <string name="lyrics_test">TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS TEST LYRICS</string>
+    <string name="lyrics_word_text">Lyrics</string>
 
 </resources>

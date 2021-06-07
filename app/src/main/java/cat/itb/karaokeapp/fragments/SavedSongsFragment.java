@@ -80,7 +80,6 @@ public class SavedSongsFragment extends Fragment {
 
     }
 
-    //Método para
     private void changeFragment(android.app.Fragment currentFragment) {
         getFragmentManager().beginTransaction().replace(R.id.content, currentFragment).commit();
     }

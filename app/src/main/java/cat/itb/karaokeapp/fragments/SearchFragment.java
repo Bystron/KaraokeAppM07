@@ -1,5 +1,6 @@
 package cat.itb.karaokeapp.fragments;
 
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -80,7 +81,13 @@ public class SearchFragment extends Fragment {
         adapter = new TrackAdapter(tracks,R.layout.item_view, new TrackAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Track name, int position) {
-                Toast.makeText(getActivity(), "La cançó es diu " + name.getTrackInfo().getTrack_name(), Toast.LENGTH_SHORT).show();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("lyricsID", name.getTrackInfo().getTrack_id());
+                LyricsOnClickFragment lyricsOnClickFragment = new LyricsOnClickFragment();
+                lyricsOnClickFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, lyricsOnClickFragment).commit();
+
             }
         });
 

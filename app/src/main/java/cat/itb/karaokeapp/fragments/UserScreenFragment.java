@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -79,7 +80,12 @@ public class UserScreenFragment extends Fragment {
         adapter = new TrackAdapter(popSongs, R.layout.item_view, new TrackAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Track name, int position) {
-                changeFragment(new LyricsFragment());
+                Bundle bundle = new Bundle();
+                bundle.putString("lyricsID", name.getTrackInfo().getTrack_id());
+
+                LyricsFragment lyricsFragment = new LyricsFragment();
+                lyricsFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, lyricsFragment).commit();
             }
         });
 
@@ -94,10 +100,6 @@ public class UserScreenFragment extends Fragment {
 
     }
 
-    //Método para cambiar el fragment actual.
-    private void changeFragment(Fragment currentFragment) {
-        getFragmentManager().beginTransaction().replace(R.id.content, currentFragment).commit();
-    }
 
     //Método para obtener todas las canciones populares
     private List<Track> getAllPopSongs(){
@@ -131,9 +133,6 @@ public class UserScreenFragment extends Fragment {
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
-                System.out.println("-------------------------------------------------------------");
-                System.out.println(response.body());
-                System.out.println("-------------------------------------------------------------");
                 adapter.setTracks(response.body().getMessage().getBody().getTracks());
             }
 

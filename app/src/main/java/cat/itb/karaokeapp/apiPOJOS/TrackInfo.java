@@ -6,6 +6,7 @@ public class TrackInfo {
 
     private String track_name;
     private String artist_name;
+    private String track_id;
 
     public String getTrack_name() {
         return track_name;
@@ -23,6 +24,14 @@ public class TrackInfo {
         this.artist_name = artist_name;
     }
 
+    public String getTrack_id() {
+        return track_id;
+    }
+
+    public void setTrack_id(String track_id) {
+        this.track_id = track_id;
+    }
+
     public TrackInfo(String track_name, String artist_name) {
         this.track_name = track_name;
         this.artist_name = artist_name;
@@ -33,6 +42,7 @@ public class TrackInfo {
         return "TrackInfo{" +
                 "track_name='" + track_name + '\'' +
                 ", artist_name='" + artist_name + '\'' +
+                ", track_id='" + track_id + '\'' +
                 '}';
     }
 }

@@ -11,7 +11,7 @@ public class Body {
     @SerializedName("track_list")
     private List<Track> tracks;
 
-
+    private LyricsInfo lyrics;
 
     public List<Track> getTracks() {
         return tracks;
@@ -19,6 +19,14 @@ public class Body {
 
     public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
+    }
+
+    public LyricsInfo getLyrics() {
+        return lyrics;
+    }
+
+    public void setLyrics(LyricsInfo lyrics) {
+        this.lyrics = lyrics;
     }
 
     @Override
